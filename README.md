@@ -79,7 +79,7 @@ Our segment mapping reveals a classic business trend where a small core group of
 
 <div align="center">
   <p><b>Customer Demographics vs. Revenue Contribution Side-by-Side Analysis</b></p>
-  <img src="./assets/readme-images/demographics_revenue_contribution.png" width="100%" alt="Customer Demographics vs Revenue Contribution" style="margin-bottom: 15px;" />
+  <img src="./assets/readme-images/demographics_revenue_dual_pie.png" width="100%" alt="Customer Demographics vs Revenue Contribution" style="margin-bottom: 15px;" />
   <table width="100%" style="border-collapse: collapse; border: none;">
     <tr style="border: none;">
       <td width="50%" style="padding: 5px; border: none; text-align: center;">
