@@ -25,13 +25,15 @@ customer-demographics-behavior-analytics/
 │
 ├── data/
 │   ├── Customer_Master_Data.csv       # Primary customer demographic profiles
-│   ├── Customer_Master_Data.csv      # Master spreadsheet reference matrix
+│   ├── Customer_Master_Data.csv       # Master spreadsheet reference matrix
 │   └── Customer_Transactions.csv      # Complete customer transactional logs
-│   └── Customer_Master_Data.xlsx
-|
-├── customer_behavior_analytics.ipynb   # Exploratory Python analytics notebook
+│   └── Customer_Master_Data.xlsx      # Raw backup data sheet workbook
+│
+├── assets/                            # Native documentation graphics container
+│   └── readme-images/                 # Local relative asset store
+│
+├── customer_behavior_analytics.ipynb  # Exploratory Python analytics notebook
 └── customer_behavior_executive_report.pdf # Ready-to-read executive data report
-
 ```
 
 ---
@@ -51,10 +53,21 @@ To ensure all analytical calculations and downstream models are backed by clean,
 To group our customer profiles into clear behavioral tiers, the analytics pipeline runs an RFM (Recency, Frequency, Monetary) scoring matrix. The system scores metrics from 1 to 5, groups them into text patterns, and maps them to target business brackets using conditional regular expressions:
 
 <div align="center">
-  <img src="https://private-user-images.githubusercontent.com/50950725/659422249-9a732053-964c-4384-988d-86061d3c0da0.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTA0MjQ1MDQsIm5iZiI6MTc5MDQyNDIwNCwicGF0aCI6Ii81MDk1MDcyNS82NTk0MjIyNDktOWE3MzIwNTMtOTY0Yy00Mzg0LTk4OGQtODYwNjFkM2MwZGEwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA5MjYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwOTI2VDEyMDMyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFlMDhmYzIwMjZmOWY2OWZlNWUzODk5ZmE5NTY0MDA3ODg5MGMzYzQ2YTA2ODIwMzRhODY5NmRkYWM2NGQ3MDYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.ZX2Mttvf8CDE3JEezInfCWCliTBaS2EqfnABqYs-uRI" width="100%" alt="Step 5: Quantile RFM Scoring Matrix" style="margin-bottom: 15px;" />
+  <p><b>Step 5: Quantile RFM Scoring Matrix</b></p>
+  <img src="./assets/readme-images/rfm_quantile_scoring.png" width="100%" alt="Step 5: Quantile RFM Scoring Matrix" style="margin-bottom: 15px;" />
   <br>
-  <img src="https://private-user-images.githubusercontent.com/50950725/659422246-6d79ce49-1220-4fb4-9353-b3b754923b5b.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTA0MjQ1MDQsIm5iZiI6MTc5MDQyNDIwNCwicGF0aCI6Ii81MDk1MDcyNS82NTk0MjIyNDYtNmQ3OWNlNDktMTIyMC00ZmI0LTkzNTMtYjNiNzU0OTIzYjViLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA5MjYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwOTI2VDEyMDMyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTY2YThmZjEzMjI1NTEwNDAyNWUxODU0YzczMzZkY2Y4ODUyNGJiMjRhYTI1ZTFiZjg3MGQ0NmVmN2E4ZjQxZjUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.ohbYvmEq-DZ6i9N_Iznt-4dfv8UNUlob1_Oaqcv3PLU" width="49%" alt="Step 6: Segment Concatenation Framework" style="margin: 5px;" />
-  <img src="https://private-user-images.githubusercontent.com/50950725/659422248-0517c887-f936-4320-91ee-4052a0e428b5.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTA0MjQ1MDQsIm5iZiI6MTc5MDQyNDIwNCwicGF0aCI6Ii81MDk1MDcyNS82NTk0MjIyNDgtMDUxN2M4ODctZjkzNi00MzIwLTkxZWUtNDA1MmEwZTQyOGI1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA5MjYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwOTI2VDEyMDMyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWYyYmRhOTYzNzNiZDRiODRlY2JiYWJlMzk4NDkxZTg1ODRjOTMxNzk4NjZhYjA3M2MxY2VlOWRiYWY4NzQzNDAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.Xz-jlUtJV_ZDkDAyoSatWZ8xiUS4J3sxMK8orqo_yBM" width="49%" alt="Step 7: Regex Label Mapping Engine" style="margin: 5px;" />
+  <table width="100%" style="border-collapse: collapse; border: none;">
+    <tr style="border: none;">
+      <td width="50%" style="padding: 5px; border: none; text-align: center;">
+        <p><b>Step 6: Segment Concatenation Framework</b></p>
+        <img src="./assets/readme-images/segment_concatenation_framework.png" width="100%" alt="Step 6: Segment Concatenation Framework" />
+      </td>
+      <td width="50%" style="padding: 5px; border: none; text-align: center;">
+        <p><b>Step 7: Regex Label Mapping Engine</b></p>
+        <img src="./assets/readme-images/regex_label_mapping.png" width="100%" alt="Step 7: Regex Label Mapping Engine" />
+      </td>
+    </tr>
+  </table>
 </div>
 
 ---
@@ -65,7 +78,20 @@ To group our customer profiles into clear behavioral tiers, the analytics pipeli
 Our segment mapping reveals a classic business trend where a small core group of high-value profiles generates the overwhelming majority of network cash flows:
 
 <div align="center">
-  <img src="https://private-user-images.githubusercontent.com/50950725/659422247-94ab85d8-4767-4056-be77-0148a562b878.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTA0MjUxMzIsIm5iZiI6MTc5MDQyNDgzMiwicGF0aCI6Ii81MDk1MDcyNS82NTk0MjIyNDctOTRhYjg1ZDgtNDc2Ny00MDU2LWJlNzctMDE0OGE1NjJiODc4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA5MjYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwOTI2VDEyMTM1MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTNmYzg2YWVlNDRlZjgyZGY2YzRjZDg3OTU0ZGRlZjQ5MDY1NWVkOTNlZjA2ODRhYTMzYmM1Yjc1NTA1NTBlMzAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.TJtG8TWFOKSdGXtUrgajDhWXXvZDCeIvi-ZClVBoW5g" width="100%" alt="Customer Demographics vs Revenue Contribution" style="margin-bottom: 15px;" />
+  <p><b>Customer Demographics vs. Revenue Contribution Side-by-Side Analysis</b></p>
+  <img src="./assets/readme-images/demographics_revenue_contribution.png" width="100%" alt="Customer Demographics vs Revenue Contribution" style="margin-bottom: 15px;" />
+  <table width="100%" style="border-collapse: collapse; border: none;">
+    <tr style="border: none;">
+      <td width="50%" style="padding: 5px; border: none; text-align: center;">
+        <p><b>Volumetric Account Distribution Matrix Across Segments</b></p>
+        <img src="./assets/readme-images/customer_distribution_bar_chart.png" width="100%" alt="Customer Distribution Across Segments" />
+      </td>
+      <td width="50%" style="padding: 5px; border: none; text-align: center;">
+        <p><b>Standalone Macro Revenue Contribution Share</b></p>
+        <img src="./assets/readme-images/revenue_contribution_pie_chart.png" width="100%" alt="Revenue Contribution by Segment" />
+      </td>
+    </tr>
+  </table>
 </div>
 
 *   **The Pareto Principal Proven:** Our analysis confirms that roughly **73% of our total customer base generates 76% of all gross network revenue**. 
@@ -75,7 +101,10 @@ Our segment mapping reveals a classic business trend where a small core group of
 The distribution plot maps out customer spending values against their recent connection timelines to isolate retention patterns:
 
 <div align="center">
-  <img src="https://private-user-images.githubusercontent.com/50950725/659422251-55dcaaef-6a50-47ad-ae89-6ee646010fd7.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTA0MjUxMzIsIm5iZiI6MTc5MDQyNDgzMiwicGF0aCI6Ii81MDk1MDcyNS82NTk0MjIyNTEtNTVkY2FhZWYtNmE1MC00N2FkLWFlODktNmVlNjQ2MDEwZmQ3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA5MjYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwOTI2VDEyMTM1MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWRlZTI2ZTQwMzBjNWIwMmEyZTk2YTkxZDk4NjVlODIwZGExYTUwOTEwOWNmZjVhYWFmNGVmYmRkN2JjMWQyODAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.WORqv8IRKKwUY1s5GKIRpEe1v_36v68Shl4tVZEqfwk" width="100%" alt="Recency vs Monetary Segmentation Matrix" style="margin-top: 15px;" />
+  <p><b>Recency vs. Monetary Multi-Dimensional Behavioral Scatter Space</b></p>
+  <img src="./assets/readme-images/recency_monetary_scatter.png" width="100%" alt="Recency vs Monetary Segmentation Matrix" style="margin-top: 15px; margin-bottom: 20px;" />
+  <p><b>Algorithmic Verification Insights Ledger</b></p>
+  <img src="./assets/readme-images/executive_insights_ledger.png" width="100%" alt="Executive Insights Verification Logs" />
 </div>
 
 > **Production Optimization Note:** *The underlying model currently processes time gaps in nanosecond tracking dimensions due to raw timedelta datetime states. A post-launch optimization update is scheduled to extract explicit `.dt.days` integer properties to normalize the X-axis tracking metrics.*
